@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>SubXchange Pro | Unlock Unlimited YouTube Subscribers</title>
+    <meta name="title" content="SubXchange Pro | Unlock Unlimited YouTube Subscribers">
+    <meta name="description" content="Join SubXchange Pro — the most advanced fair-trade YouTube subscriber exchange network. Earn credits by subscribing to creators, then promote your own channel for free organic growth.">
+    <meta name="keywords" content="Sub4Sub, YouTube subscribers, subscriber exchange, free subscribers, YouTube growth, content creator, SubXchange">
+    <meta name="author" content="SubXchange Pro">
+    <meta name="theme-color" content="#0b0f19">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-username.github.io/subxchange-pro/">
+    <meta property="og:title" content="SubXchange Pro | Unlock Unlimited YouTube Subscribers">
+    <meta property="og:description" content="The most advanced fair-trade YouTube subscriber exchange network. Earn credits, promote your channel, grow organically.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/your-username/subxchange-pro/main/preview.png">
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-username.github.io/subxchange-pro/">
+    <meta property="twitter:title" content="SubXchange Pro | Unlock Unlimited YouTube Subscribers">
+    <meta property="twitter:description" content="The most advanced fair-trade YouTube subscriber exchange network.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/your-username/subxchange-pro/main/preview.png">
+    
+    <!-- Favicon (YouTube-style red) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ef4444'/><polygon points='40,30 40,70 75,50' fill='white'/></svg>">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-red {
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.35);
+        }
+        .glow-purple {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+        }
+        /* Pulse animation */
+        @keyframes radar-pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .radar-badge {
+            animation: radar-pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative selection:bg-red-500 selection:text-white">
+
+    <!-- Background glowing blobs -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute top-1/3 right-10 w-[30rem] h-[30rem] bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-10 left-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3 max-w-sm w-full px-4 pointer-events-none"></div>
+
+    <!-- Modal Overlay for Verification Progress -->
+    <div id="verify-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass max-w-md w-full rounded-2xl p-6 text-center border border-slate-700 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-purple-500 to-blue-500"></div>
+            <div class="w-20 h-20 mx-auto my-4 rounded-full bg-slate-800 flex items-center justify-center border-2 border-red-500 shadow-lg glow-red">
+                <i class="fa-brands fa-youtube text-red-500 text-3xl animate-bounce"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Verifying Subscription</h3>
+            <p class="text-slate-300 text-sm mb-6">Please keep the YouTube tab open and active. Our system is securely validating your subscription...</p>
+            
+            <!-- Circular countdown / progress -->
+            <div class="relative w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="42" class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent"></circle>
+                    <circle id="modal-timer-circle" cx="50" cy="50" r="42" class="text-red-500 transition-all duration-1000 ease-linear" stroke-width="8" stroke-dasharray="263.89" stroke-dashoffset="0" stroke="currentColor" fill="transparent" stroke-linecap="round"></circle>
+                </svg>
+                <div class="absolute flex flex-col items-center">
+                    <span id="modal-timer-sec" class="text-3xl font-extrabold text-white">10</span>
+                    <span class="text-xs text-slate-400">seconds</span>
+                </div>
+            </div>
+
+            <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs text-amber-400 flex items-center gap-2 text-left mb-4">
+                <i class="fa-solid fa-shield-halved text-base flex-shrink-0"></i>
+                <span>Anti-Cheat active: Closing the tab or unfocusing prematurely pauses verification.</span>
+            </div>
+            
+            <button id="cancel-verify-btn" class="w-full py-2 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium rounded-xl transition cursor-pointer">
+                Cancel Verification
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== GATEWAY / LOCK SCREEN ==================== -->
+    <div id="gateway-screen" class="min-h-screen flex items-center justify-center p-4 z-10 transition-all duration-500">
+        <div class="max-w-2xl w-full glass rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
+            <!-- Header Badge -->
+            <div class="flex items-center justify-center mb-6">
+                <div class="px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-sm"></i> Secure Gateway Lock Active
+                </div>
+            </div>
+
+            <!-- Hero Title -->
+            <div class="text-center mb-8">
+                <div class="inline-block p-4 rounded-2xl bg-gradient-to-tr from-red-600/20 to-purple-600/20 mb-4 border border-red-500/20">
+                    <i class="fa-brands fa-youtube text-5xl text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"></i>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">
+                    Unlock Unlimited <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-500">YouTube Subs</span>
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg max-w-lg mx-auto">
+                    Join the most advanced, fair-trade subscriber exchange network. To access the platform and receive free community subscribers, you must complete the mandatory verification step below.
+                </p>
+            </div>
+
+            <!-- Step 1 Card -->
+            <div class="glass-card rounded-2xl p-6 mb-6 border border-red-500/20 relative">
+                <div class="absolute -top-3 left-6 px-3 py-1 bg-red-600 text-white font-bold text-xs rounded-full uppercase tracking-wider shadow-lg">
+                    Step 1: Mandatory
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+                    <div class="flex items-center gap-4 text-left w-full sm:w-auto">
+                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=rushi_lofi" alt="Rushi Lofi" class="w-14 h-14 rounded-full bg-purple-500 p-1 border-2 border-purple-400 flex-shrink-0 shadow-md">
+                        <div>
+                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                Rushi Lofi 
+                                <span class="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded font-semibold">Official Admin</span>
+                            </h3>
+                            <p class="text-xs text-slate-400">Subscribe to activate your SubXchange profile account.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://youtube.com/@rushi_lofi?si=RJE8UWSQrP2QdJbg" target="_blank" id="gateway-sub-btn" class="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold rounded-xl transition duration-300 flex items-center justify-center gap-3 text-center shadow-lg glow-red cursor-pointer">
+                        <i class="fa-brands fa-youtube text-xl"></i>
+                        <span>Subscribe to Rushi Lofi</span>
+                    </a>
+                </div>
+
+                <!-- Warning Banner -->
+                <div class="mt-5 p-3 rounded-xl bg-red-950/40 border border-red-900 text-xs text-red-300 flex items-start gap-3">
+                    <i class="fa-solid fa-triangle-exclamation text-red-500 text-base mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-red-400 font-semibold">Important Security Warning:</strong> Our automated API bots verify subscription rosters every 24 hours. Unsubscribing later will result in a <strong>permanent ban</strong> from the network and forfeiture of all accumulated coins.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 Card -->
+            <div class="glass-card rounded-2xl p-6 mb-8 border border-slate-700/60 relative">
+                <div class="absolute -top-3 left-6 px-3 py-1 bg-slate-700 text-slate-300 font-bold text-xs rounded-full uppercase tracking-wider">
+                    Step 2: Verification
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+                    <div class="text-center sm:text-left">
+                        <h4 class="text-base font-bold text-slate-200">Verify & Access Dashboard</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">Click 'Subscribe' above first to activate the security verification timer.</p>
+                    </div>
+
+                    <!-- Timer Display / Action Button -->
+                    <div class="w-full sm:w-auto">
+                        <button id="gateway-verify-btn" disabled class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 text-slate-500 font-bold rounded-xl transition duration-300 flex items-center justify-center gap-3 cursor-not-allowed border border-slate-700">
+                            <i class="fa-solid fa-lock text-slate-500" id="verify-lock-icon"></i>
+                            <span id="gateway-verify-text">Locked - Complete Step 1</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Timer countdown inside box -->
+                <div id="gateway-timer-container" class="hidden mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+                    <span class="text-xs font-medium text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i> Auditing subscription status...
+                    </span>
+                    <span class="text-sm font-bold text-white px-2.5 py-1 rounded-lg bg-amber-500/20 border border-amber-500/30">
+                        <span id="gateway-countdown-num">15</span>s remaining
+                    </span>
+                </div>
+            </div>
+
+            <!-- Live Platform Stats Footer -->
+            <div class="grid grid-cols-3 gap-4 text-center pt-6 border-t border-slate-800/80">
+                <div>
+                    <div class="text-xl sm:text-2xl font-bold text-white">48,295</div>
+                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Active Users</div>
+                </div>
+                <div>
+                    <div class="text-xl sm:text-2xl font-bold text-red-500">1.2M+</div>
+                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Subs Exchanged</div>
+                </div>
+                <div>
+                    <div class="text-xl sm:text-2xl font-bold text-purple-400">100%</div>
+                    <div class="text-[11px] sm:text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Secure & Real</div>
+                </div>
+            </div>
+
+            <!-- Bypass simulated link for testing/dev ease -->
+            <div class="mt-6 text-center">
+                <button id="dev-bypass-btn" class="text-[10px] text-slate-600 hover:text-slate-400 underline cursor-pointer bg-transparent border-none">
+                    [Developer Mode: Instant Unlock]
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN DASHBOARD ==================== -->
+    <div id="dashboard-screen" class="hidden min-h-screen flex flex-col z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- Navigation Bar -->
+        <header class="glass rounded-2xl px-6 py-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800 shadow-xl">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-purple-600 flex items-center justify-center shadow-lg shadow-red-500/20">
+                    <i class="fa-brands fa-youtube text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black text-white tracking-wider flex items-center gap-2">
+                        SUB<span class="text-red-500">X</span>CHANGE
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold uppercase">PRO</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-400 font-medium">Decentralized Creator Growth Engine</p>
+                </div>
+            </div>
+
+            <!-- Header Widgets -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+                <!-- Anti-cheat indicator -->
+                <div class="radar-badge px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex items-center gap-2 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>Anti-Cheat Radar: Active</span>
+                </div>
+
+                <!-- Wallet Pill -->
+                <div class="px-4 py-2 rounded-xl bg-slate-800/90 border border-slate-700 flex items-center gap-3 shadow-inner">
+                    <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-slate-900 font-extrabold text-xs shadow-md">
+                        <i class="fa-solid fa-coins text-xs"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] text-slate-400 font-bold uppercase leading-none">Your Wallet</span>
+                        <span class="text-sm font-extrabold text-white leading-tight"><span id="wallet-balance">20</span> Credits</span>
+                    </div>
+                </div>
+
+                <!-- Logout / Settings -->
+                <button id="logout-btn" title="Lock & Reset Gateway" class="p-2.5 rounded-xl bg-slate-800 hover:bg-red-950/50 hover:text-red-400 text-slate-400 border border-slate-700 transition cursor-pointer flex items-center justify-center">
+                    <i class="fa-solid fa-right-from-bracket text-sm"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Overview Banner -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+                <div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase">Subs Received</div>
+                    <div class="text-2xl font-extrabold text-white" id="stat-subs-received">0</div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                </div>
+                <div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase">Credits Earned</div>
+                    <div class="text-2xl font-extrabold text-white" id="stat-credits-earned">20</div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase">Active Campaigns</div>
+                    <div class="text-2xl font-extrabold text-white" id="stat-active-campaigns">0</div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase">Tier Rank</div>
+                    <div class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Basic 1x</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel Setup Banner (If not set up) -->
+        <div id="channel-setup-banner" class="glass rounded-2xl p-6 mb-6 border border-amber-500/40 bg-amber-950/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+            <div class="flex items-center gap-4 text-left">
+                <div class="w-14 h-14 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl flex-shrink-0 border border-amber-500/30">
+                    <i class="fa-solid fa-triangle-exclamation animate-pulse"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Setup Your Channel Profile</h3>
+                    <p class="text-sm text-slate-300">You must configure your YouTube Channel Name and URL before you can launch subscriber promotion campaigns.</p>
+                </div>
+            </div>
+            <button id="open-setup-btn" class="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-black rounded-xl transition duration-300 shadow-lg cursor-pointer flex items-center justify-center gap-2">
+                <i class="fa-solid fa-gear"></i> Configure Channel Now
+            </button>
+        </div>
+
+        <!-- Main Workspace: Navigation Tabs & Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
+            
+            <!-- Sidebar / Tab Menu -->
+            <div class="lg:col-span-3 flex flex-col gap-2">
+                <div class="glass rounded-2xl p-3 border border-slate-800 flex flex-col gap-1.5">
+                    <div class="text-xs font-bold text-slate-500 uppercase px-3 py-2">Menu Navigation</div>
+                    
+                    <button data-tab="earn" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold text-sm transition text-slate-300 hover:bg-slate-800/80 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-play text-red-500 text-base w-5"></i>
+                            <span>Earn Credits</span>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-md bg-red-500/20 text-red-400 text-xs">+5 / sub</span>
+                    </button>
+
+                    <button data-tab="promote" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold text-sm transition text-slate-300 hover:bg-slate-800/80 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-rocket text-purple-400 text-base w-5"></i>
+                            <span>Promote Channel</span>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-md bg-purple-500/20 text-purple-400 text-xs">Campaigns</span>
+                    </button>
+
+                    <button data-tab="my-campaigns" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold text-sm transition text-slate-300 hover:bg-slate-800/80 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-chart-line text-blue-400 text-base w-5"></i>
+                            <span>My Campaigns</span>
+                        </div>
+                        <span id="tab-badge-campaigns" class="px-2 py-0.5 rounded-md bg-blue-500/20 text-blue-400 text-xs">0</span>
+                    </button>
+
+                    <button data-tab="leaderboard" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold text-sm transition text-slate-300 hover:bg-slate-800/80 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-trophy text-amber-400 text-base w-5"></i>
+                            <span>Leaderboard</span>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-400 text-xs">Top</span>
+                    </button>
+
+                    <button data-tab="rewards" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold text-sm transition text-slate-300 hover:bg-slate-800/80 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-gift text-emerald-400 text-base w-5"></i>
+                            <span>Daily Rewards</span>
+                        </div>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    </button>
+
+                    <button data-tab="faq" class="tab-btn w-full flex items-center justify-between px-4 py-3 rounded-xl font-bold text-sm transition text-slate-300 hover:bg-slate-800/80 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-shield-halved text-indigo-400 text-base w-5"></i>
+                            <span>Rules & FAQ</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- User Quick Profile Card inside sidebar -->
+                <div class="glass rounded-2xl p-4 border border-slate-800 mt-2 flex flex-col items-center text-center">
+                    <img id="sidebar-user-avatar" src="https://api.dicebear.com/7.x/identicon/svg?seed=subxchange" alt="User Avatar" class="w-16 h-16 rounded-full bg-slate-800 p-1 border-2 border-slate-700 mb-3 shadow-md">
+                    <h4 id="sidebar-user-name" class="font-bold text-white text-base">Guest Creator</h4>
+                    <p id="sidebar-user-url" class="text-xs text-slate-400 max-w-[180px] truncate mb-4">No YouTube channel linked</p>
+                    <button id="edit-profile-sidebar-btn" class="w-full py-2 px-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs rounded-xl border border-slate-700 transition cursor-pointer flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-pen"></i> Edit Profile
+                    </button>
+                </div>
+
+                <!-- Live Community Feed Widget -->
+                <div class="glass rounded-2xl p-4 border border-slate-800 mt-2 flex flex-col gap-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-satellite-dish text-red-500 animate-pulse"></i> Live Network Feed
+                        </span>
+                    </div>
+                    <div id="live-feed-container" class="flex flex-col gap-2.5 text-xs text-slate-300 max-h-48 overflow-y-auto pr-1">
+                        <!-- Feed items generated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content Area -->
+            <div class="lg:col-span-9 flex flex-col">
+                
+                <!-- TAB 1: EARN CREDITS -->
+                <div id="tab-earn" class="tab-content glass rounded-2xl p-6 border border-slate-800 flex-grow">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                                <span>Earn Community Credits</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Active Pool</span>
+                            </h2>
+                            <p class="text-sm text-slate-400 mt-1">Subscribe to fellow creators below. Keep the tab open for 10 seconds to earn +5 Credits per subscription.</p>
+                        </div>
+
+                        <!-- Category Filters -->
+                        <div class="flex items-center gap-2 overflow-x-auto pb-2 w-full sm:w-auto">
+                            <button class="filter-btn px-3 py-1.5 rounded-xl bg-red-600 text-white font-bold text-xs whitespace-nowrap cursor-pointer transition" data-filter="all">All Channels</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-bold text-xs whitespace-nowrap cursor-pointer transition" data-filter="Gaming">Gaming</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-bold text-xs whitespace-nowrap cursor-pointer transition" data-filter="Tech">Tech</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-bold text-xs whitespace-nowrap cursor-pointer transition" data-filter="Vlogs">Vlogs</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-bold text-xs whitespace-nowrap cursor-pointer transition" data-filter="Music">Music</button>
+                        </div>
+                    </div>
+
+                    <!-- Channels Grid -->
+                    <div id="channels-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Empty state -->
+                    <div id="channels-empty" class="hidden text-center py-12 px-4">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center text-slate-500 mx-auto mb-4 text-2xl border border-slate-700">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">No Available Channels Right Now</h3>
+                        <p class="text-slate-400 text-sm max-w-sm mx-auto mb-6">You've subscribed to all available campaigns in this filter! Check back soon or promote your own channel.</p>
+                        <button id="refresh-pool-btn" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 font-bold text-white text-xs rounded-xl transition cursor-pointer">
+                            <i class="fa-solid fa-rotate mr-2"></i> Reload Community Pool
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB 2: PROMOTE CHANNEL -->
+                <div id="tab-promote" class="tab-content hidden glass rounded-2xl p-6 border border-slate-800 flex-grow">
+                    <div class="mb-6 pb-6 border-b border-slate-800">
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                            <span>Promote My Channel</span>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">Launch Campaign</span>
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-1">Spend your credits to get organic, real subscribers from the community network.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <div class="lg:col-span-7 flex flex-col gap-6">
+                            <form id="campaign-form" class="flex flex-col gap-5">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">YouTube Channel Name <span class="text-red-500">*</span></label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                                            <i class="fa-solid fa-tv"></i>
+                                        </span>
+                                        <input type="text" id="form-channel-name" required placeholder="e.g., PewDiePie, TechTips" class="w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">YouTube Channel URL <span class="text-red-500">*</span></label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                                            <i class="fa-solid fa-link"></i>
+                                        </span>
+                                        <input type="url" id="form-channel-url" required placeholder="https://youtube.com/@your_channel" class="w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition text-sm">
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 mt-1.5">Must be a valid YouTube URL (youtube.com/@handle or channel/ID).</p>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Category</label>
+                                        <div class="relative">
+                                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                                                <i class="fa-solid fa-tags"></i>
+                                            </span>
+                                            <select id="form-category" class="w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-purple-500 transition text-sm appearance-none cursor-pointer">
+                                                <option value="Gaming">Gaming</option>
+                                                <option value="Tech">Tech</option>
+                                                <option value="Vlogs">Vlogs</option>
+                                                <option value="Music">Music</option>
+                                            </select>
+                                            <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-500 pointer-events-none">
+                                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Subscribers Requested</label>
+                                        <div class="relative">
+                                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                                                <i class="fa-solid fa-users"></i>
+                                            </span>
+                                            <select id="form-sub-count" class="w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-purple-500 transition text-sm appearance-none cursor-pointer">
+                                                <option value="2">2 Subscribers (20 Credits)</option>
+                                                <option value="5">5 Subscribers (50 Credits)</option>
+                                                <option value="10">10 Subscribers (100 Credits)</option>
+                                                <option value="25">25 Subscribers (250 Credits)</option>
+                                                <option value="50">50 Subscribers (500 Credits)</option>
+                                            </select>
+                                            <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-500 pointer-events-none">
+                                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-xl bg-purple-950/30 border border-purple-500/20 flex items-center justify-between mt-2">
+                                    <div>
+                                        <span class="text-xs text-slate-400 font-bold uppercase">Total Campaign Cost</span>
+                                        <div class="text-xl font-extrabold text-white flex items-center gap-2 mt-0.5">
+                                            <i class="fa-solid fa-coins text-amber-500 text-base"></i>
+                                            <span id="form-cost-calc">20</span> Credits
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-xs text-slate-400 font-bold uppercase">Your Balance</span>
+                                        <div id="form-balance-check" class="text-base font-bold text-emerald-400 mt-0.5">Sufficient Balance</div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" id="submit-campaign-btn" class="w-full py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black rounded-xl shadow-lg glow-purple transition duration-300 cursor-pointer flex items-center justify-center gap-3 text-base">
+                                    <i class="fa-solid fa-rocket"></i> Launch Promotion Campaign
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Info side panel -->
+                        <div class="lg:col-span-5 flex flex-col gap-4">
+                            <div class="glass-card rounded-2xl p-6 border border-slate-800">
+                                <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-info text-purple-400"></i> How Campaigns Work
+                                </h3>
+                                <ul class="text-xs text-slate-300 space-y-3">
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm mt-0.5 flex-shrink-0"></i>
+                                        <span>Each requested subscriber costs <strong>10 Credits</strong>. The network rewards users 5 credits, and 5 credits power network auditing.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm mt-0.5 flex-shrink-0"></i>
+                                        <span>Your campaign goes live in the "Earn Credits" community pool immediately upon launching.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i class="fa-solid fa-circle-check text-emerald-500 text-sm mt-0.5 flex-shrink-0"></i>
+                                        <span>Anti-cheat bots ensure users stay subscribed. If someone unsubscribes, their subscription is revoked and re-added to your pool.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="glass-card rounded-2xl p-6 border border-slate-800 bg-gradient-to-tr from-red-950/20 to-purple-950/20">
+                                <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-bolt text-amber-400"></i> Need More Credits?
+                                </h3>
+                                <p class="text-xs text-slate-400 mb-4">You can easily earn more credits by subscribing to fellow creators in the Earn tab, or claim your free daily rewards.</p>
+                                <button id="quick-earn-nav-btn" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs rounded-xl border border-slate-700 transition cursor-pointer flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-play"></i> Go Earn Credits
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: MY CAMPAIGNS -->
+                <div id="tab-my-campaigns" class="tab-content hidden glass rounded-2xl p-6 border border-slate-800 flex-grow">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                                <span>My Promotion Campaigns</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">Analytics</span>
+                            </h2>
+                            <p class="text-sm text-slate-400 mt-1">Track the real-time progress of subscribers joining your YouTube channel.</p>
+                        </div>
+                        <button id="new-campaign-head-btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl transition cursor-pointer flex items-center gap-2 shadow-lg shadow-blue-500/20">
+                            <i class="fa-solid fa-plus"></i> Create Campaign
+                        </button>
+                    </div>
+
+                    <div id="my-campaigns-list" class="flex flex-col gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div id="my-campaigns-empty" class="hidden text-center py-12 px-4">
+                        <div class="w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center text-slate-500 mx-auto mb-4 text-2xl border border-slate-700">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">No Active Campaigns</h3>
+                        <p class="text-slate-400 text-sm max-w-sm mx-auto mb-6">You haven't launched any subscriber promotion campaigns yet. Promote your channel to get started!</p>
+                        <button id="empty-create-campaign-btn" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 font-bold text-white text-xs rounded-xl transition shadow-lg cursor-pointer">
+                            <i class="fa-solid fa-rocket mr-2"></i> Promote Channel Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB 4: LEADERBOARD -->
+                <div id="tab-leaderboard" class="tab-content hidden glass rounded-2xl p-6 border border-slate-800 flex-grow">
+                    <div class="mb-6 pb-6 border-b border-slate-800">
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                            <span>Community Leaderboard</span>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">Top Earners</span>
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-1">The most active creators exchanging subscriptions and growing the network.</p>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-300 border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-800 text-xs font-bold uppercase text-slate-500">
+                                    <th class="py-3 px-4">Rank</th>
+                                    <th class="py-3 px-4">Creator Channel</th>
+                                    <th class="py-3 px-4">Category</th>
+                                    <th class="py-3 px-4 text-right">Subs Exchanged</th>
+                                    <th class="py-3 px-4 text-right">Coins Earned</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-tbody" class="divide-y divide-slate-800/60">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TAB 5: DAILY REWARDS & VIP -->
+                <div id="tab-rewards" class="tab-content hidden glass rounded-2xl p-6 border border-slate-800 flex-grow">
+                    <div class="mb-6 pb-6 border-b border-slate-800">
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                            <span>Daily Bonuses & VIP Perks</span>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Rewards</span>
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-1">Claim your daily check-in credits and explore premium growth multipliers.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- Daily Reward Card -->
+                        <div class="glass-card rounded-2xl p-6 border border-emerald-500/30 flex flex-col justify-between relative overflow-hidden bg-gradient-to-tr from-emerald-950/20 to-slate-900/60">
+                            <div class="absolute -right-6 -top-6 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl pointer-events-none"></div>
+                            <div>
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl mb-4 shadow-lg shadow-emerald-500/10">
+                                    <i class="fa-solid fa-gift"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-1">Daily Creator Bonus</h3>
+                                <p class="text-xs text-slate-300 mb-6 leading-relaxed">Check in every 24 hours to claim free community coins. Power up your active promotional campaigns without spending!</p>
+                                <div class="flex items-baseline gap-2 mb-6">
+                                    <span class="text-3xl font-extrabold text-white">+15</span>
+                                    <span class="text-xs text-slate-400 font-bold uppercase tracking-wider">Credits Daily</span>
+                                </div>
+                            </div>
+
+                            <button id="claim-daily-btn" class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-slate-950 font-black rounded-xl transition duration-300 shadow-lg cursor-pointer flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-bolt"></i> Claim Daily Reward
+                            </button>
+                        </div>
+
+                        <!-- VIP Membership Card -->
+                        <div class="glass-card rounded-2xl p-6 border border-purple-500/30 flex flex-col justify-between relative overflow-hidden bg-gradient-to-tr from-purple-950/20 to-slate-900/60">
+                            <div class="absolute -right-6 -top-6 w-32 h-32 bg-purple-500/10 rounded-full blur-xl pointer-events-none"></div>
+                            <div>
+                                <div class="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-500/30 text-purple-400 flex items-center justify-center text-2xl mb-4 shadow-lg shadow-purple-500/10">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-1">VIP Pro Multiplier</h3>
+                                <p class="text-xs text-slate-300 mb-4 leading-relaxed">Upgrade to VIP status to earn double credits (+10 per sub) and receive priority campaign placement in the network pool.</p>
+                                <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> 2x Credit Earnings (+10 Credits)</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Featured Campaign Placement</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400"></i> Dedicated Anti-Cheat Priority</li>
+                                </ul>
+                            </div>
+
+                            <button id="upgrade-vip-btn" class="w-full py-3.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black rounded-xl transition duration-300 shadow-lg glow-purple cursor-pointer flex items-center justify-center gap-2 text-sm">
+                                <i class="fa-solid fa-sparkles"></i> Upgrade to VIP (Free Sim)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transaction Ledger -->
+                    <div class="glass-card rounded-2xl p-5 border border-slate-800">
+                        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left text-slate-400"></i> Recent Account Ledger
+                        </h4>
+                        <div id="transactions-list" class="divide-y divide-slate-800/80 max-h-48 overflow-y-auto pr-2">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 6: FAQ -->
+                <div id="tab-faq" class="tab-content hidden glass rounded-2xl p-6 border border-slate-800 flex-grow">
+                    <div class="mb-6 pb-6 border-b border-slate-800">
+                        <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                            <span>Network Rules & FAQ</span>
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">Help Center</span>
+                        </h2>
+                        <p class="text-sm text-slate-400 mt-1">Everything you need to know about trading subscribers securely.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <h4 class="font-bold text-white text-base mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-red-500"></i> Why am I forced to subscribe to Rushi Lofi first?
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                The Sub-to-Unlock gateway is our foundational anti-bot measure. Subscribing to the administrator's official channel ensures that only genuine human YouTube accounts enter the platform, protecting all creators from automated ghost subscribers.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <h4 class="font-bold text-white text-base mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-amber-500"></i> How do I earn Credits?
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                You earn +5 Credits for every community channel you subscribe to in the "Earn Credits" tab. You must keep the target YouTube window open for the full 10-second verification countdown to confirm your subscription.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <h4 class="font-bold text-white text-base mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-purple-500"></i> What happens if someone unsubscribes from me?
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                SubXchange features strict Anti-Cheat auditing bots. If a user unsubscribes from your channel, our bots instantly detect the discrepancy, ban the cheating user, refund your credits, and re-publish your channel back into the active promotion pool automatically.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <h4 class="font-bold text-white text-base mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-emerald-500"></i> How long does a promotion campaign take?
+                            </h4>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Depending on community traffic, most campaigns fulfill within minutes! You can monitor the live progress bar in the "My Campaigns" analytics tab.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 py-6 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 SubXchange Pro. Built for creators. Fully secure subscriber gateway.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://youtube.com/@rushi_lofi?si=RJE8UWSQrP2QdJbg" target="_blank" class="hover:text-red-500 transition">Admin YouTube</a>
+                <span class="text-slate-700">•</span>
+                <span class="text-emerald-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Network Status: All Systems Operational</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for Channel Profile Setup -->
+    <div id="setup-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass max-w-md w-full rounded-2xl p-6 border border-slate-700 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-red-500"></div>
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-gear text-amber-500"></i> Configure Channel Profile
+                </h3>
+                <button id="close-setup-modal" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <p class="text-slate-300 text-xs mb-6">Enter your channel details below. Your avatar and community handle will be synced automatically.</p>
+
+            <form id="profile-setup-form" class="flex flex-col gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Channel Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="setup-name" required placeholder="e.g. Rushi Lofi, MrBeast" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Channel URL <span class="text-red-500">*</span></label>
+                    <input type="url" id="setup-url" required placeholder="https://youtube.com/@rushi_lofi" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 text-sm">
+                    <p class="text-[10px] text-slate-400 mt-1">Must be a valid YouTube URL.</p>
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black rounded-xl transition duration-300 shadow-lg mt-2 cursor-pointer">
+                    Save Profile & Continue
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT APP ENGINE ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- STATE MANAGEMENT (localStorage) ---
+            const STORAGE_USER_KEY = 'sub4sub_user_state_v1';
+            const STORAGE_CAMPAIGNS_KEY = 'sub4sub_community_campaigns_v1';
+            const STORAGE_MY_CAMPAIGNS_KEY = 'sub4sub_my_campaigns_v1';
+            const STORAGE_TRANSACTIONS_KEY = 'sub4sub_transactions_v1';
+
+            // Initial Mock Community Campaigns
+            const MOCK_CAMPAIGNS = [
+                { id: 'c1', name: 'GamerGod 99', url: 'https://youtube.com/@pewdiepie', category: 'Gaming', currentSubs: 8, targetSubs: 15, avatarSeed: 'GamerGod99' },
+                { id: 'c2', name: 'TechBeast Official', url: 'https://youtube.com/@mkbhd', category: 'Tech', currentSubs: 24, targetSubs: 50, avatarSeed: 'TechBeast' },
+                { id: 'c3', name: 'Chill Beats / Lofi', url: 'https://youtube.com/@lofigirl', category: 'Music', currentSubs: 42, targetSubs: 100, avatarSeed: 'ChillBeats' },
+                { id: 'c4', name: 'Daily Vlogs & Travel', url: 'https://youtube.com/@caseyneistat', category: 'Vlogs', currentSubs: 3, targetSubs: 10, avatarSeed: 'CaseyVlogs' },
+                { id: 'c5', name: 'Code & Build AI', url: 'https://youtube.com/@fireship', category: 'Tech', currentSubs: 19, targetSubs: 25, avatarSeed: 'CodeAI' },
+                { id: 'c6', name: 'Apex Legends Pro Clips', url: 'https://youtube.com/@apex', category: 'Gaming', currentSubs: 1, targetSubs: 5, avatarSeed: 'ApexClips' },
+                { id: 'c7', name: 'Acoustic Covers', url: 'https://youtube.com/@boyceavenue', category: 'Music', currentSubs: 12, targetSubs: 20, avatarSeed: 'AcousticCovers' },
+                { id: 'c8', name: 'Foodie Adventurer', url: 'https://youtube.com/@besteverfoodreviewshow', category: 'Vlogs', currentSubs: 33, targetSubs: 40, avatarSeed: 'FoodieAdventurer' }
+            ];
+
+            // Initial Leaderboard Data
+            const MOCK_LEADERBOARD = [
+                { name: 'UltraGamerX', category: 'Gaming', subs: 1420, coins: 7100 },
+                { name: 'SarahVlogs', category: 'Vlogs', subs: 980, coins: 4900 },
+                { name: 'DevMasterPro', category: 'Tech', subs: 850, coins: 4250 },
+                { name: 'Lofi Vibes', category: 'Music', subs: 630, coins: 3150 },
+                { name: 'CryptoKnight', category: 'Tech', subs: 510, coins: 2550 },
+                { name: 'FitnessCoach', category: 'Vlogs', subs: 440, coins: 2200 },
+                { name: 'AnimeAMV', category: 'Gaming', subs: 390, coins: 1950 }
+            ];
+
+            // Get / Initialize User State
+            function getUserState() {
+                const defaultState = {
+                    unlocked: false,
+                    credits: 20,
+                    channelName: '',
+                    channelUrl: '',
+                    avatar: 'subxchange',
+                    dailyClaimed: 0,
+                    totalEarned: 20,
+                    subsReceivedTotal: 0,
+                    completedSubs: [],
+                    vip: false
+                };
+                const saved = localStorage.getItem(STORAGE_USER_KEY);
+                return saved ? { ...defaultState, ...JSON.parse(saved) } : defaultState;
+            }
+
+            function saveUserState(state) {
+                localStorage.setItem(STORAGE_USER_KEY, JSON.stringify(state));
+                updateUIStats();
+            }
+
+            function getCommunityCampaigns() {
+                const saved = localStorage.getItem(STORAGE_CAMPAIGNS_KEY);
+                return saved ? JSON.parse(saved) : MOCK_CAMPAIGNS;
+            }
+
+            function saveCommunityCampaigns(campaigns) {
+                localStorage.setItem(STORAGE_CAMPAIGNS_KEY, JSON.stringify(campaigns));
+            }
+
+            function getMyCampaigns() {
+                const saved = localStorage.getItem(STORAGE_MY_CAMPAIGNS_KEY);
+                return saved ? JSON.parse(saved) : [];
+            }
+
+            function saveMyCampaigns(campaigns) {
+                localStorage.setItem(STORAGE_MY_CAMPAIGNS_KEY, JSON.stringify(campaigns));
+                updateUIStats();
+            }
+
+            function getTransactions() {
+                const saved = localStorage.getItem(STORAGE_TRANSACTIONS_KEY);
+                return saved ? JSON.parse(saved) : [
+                    { text: 'Starting bonus balance credited', amount: '+20', date: 'Account Creation', type: 'earn' }
+                ];
+            }
+
+            function addTransaction(text, amount, type = 'earn') {
+                const txs = getTransactions();
+                txs.unshift({ text, amount, date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), type });
+                if (txs.length > 20) txs.pop();
+                localStorage.setItem(STORAGE_TRANSACTIONS_KEY, JSON.stringify(txs));
+                renderTransactions();
+            }
+
+            // --- GLOBAL VARIABLES ---
+            let user = getUserState();
+            let currentFilter = 'all';
+            let verificationTimer = null;
+            let activeVerifyCampaignId = null;
+            let activeVerifyWindow = null;
+
+            // --- TOAST NOTIFICATIONS ---
+            function showToast(message, type = 'info') {
+                const container = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = `p-4 rounded-2xl glass border flex items-center gap-3 shadow-xl transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto ${
+                    type === 'success' ? 'border-emerald-500/40 bg-emerald-950/30 text-emerald-300' :
+                    type === 'error' ? 'border-red-500/40 bg-red-950/30 text-red-300' :
+                    type === 'warning' ? 'border-amber-500/40 bg-amber-950/30 text-amber-300' :
+                    'border-purple-500/40 bg-purple-950/30 text-purple-300'
+                }`;
+
+                const icon = type === 'success' ? '<i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>' :
+                             type === 'error' ? '<i class="fa-solid fa-circle-xmark text-red-400 text-lg"></i>' :
+                             type === 'warning' ? '<i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg"></i>' :
+                             '<i class="fa-solid fa-circle-info text-purple-400 text-lg"></i>';
+
+                toast.innerHTML = `${icon}<div class="text-xs font-semibold">${message}</div>`;
+                container.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-2', 'opacity-0');
+                    toast.classList.add('translate-y-0', 'opacity-100');
+                }, 10);
+
+                setTimeout(() => {
+                    toast.classList.add('translate-y-2', 'opacity-0');
+                    setTimeout(() => toast.remove(), 300);
+                }, 4000);
+            }
+
+            // --- GATEWAY LOCK LOGIC ---
+            const gatewayScreen = document.getElementById('gateway-screen');
+            const dashboardScreen = document.getElementById('dashboard-screen');
+            const gatewaySubBtn = document.getElementById('gateway-sub-btn');
+            const gatewayVerifyBtn = document.getElementById('gateway-verify-btn');
+            const gatewayVerifyText = document.getElementById('gateway-verify-text');
+            const verifyLockIcon = document.getElementById('verify-lock-icon');
+            const gatewayTimerContainer = document.getElementById('gateway-timer-container');
+            const gatewayCountdownNum = document.getElementById('gateway-countdown-num');
+
+            function checkUnlockStatus() {
+                if (user.unlocked) {
+                    gatewayScreen.classList.add('hidden');
+                    dashboardScreen.classList.remove('hidden');
+                    initDashboard();
+                } else {
+                    gatewayScreen.classList.remove('hidden');
+                    dashboardScreen.classList.add('hidden');
+                }
+            }
+
+            // Step 1 Click
+            gatewaySubBtn.addEventListener('click', () => {
+                showToast("Subscription link opened! 15s verification timer started.", "info");
+                gatewayTimerContainer.classList.remove('hidden');
+                gatewaySubBtn.classList.add('pointer-events-none', 'opacity-60');
+
+                let timeLeft = 15;
+                gatewayCountdownNum.textContent = timeLeft;
+
+                const timer = setInterval(() => {
+                    timeLeft--;
+                    gatewayCountdownNum.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        gatewayTimerContainer.classList.add('hidden');
+                        
+                        // Enable Step 2 Button
+                        gatewayVerifyBtn.removeAttribute('disabled');
+                        gatewayVerifyBtn.className = "w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-slate-950 font-black rounded-xl transition duration-300 flex items-center justify-center gap-3 cursor-pointer shadow-lg shadow-emerald-500/20";
+                        verifyLockIcon.className = "fa-solid fa-unlock text-slate-950";
+                        gatewayVerifyText.textContent = "Step 2: Verify & Enter Dashboard";
+                        showToast("Subscription verified! Step 2 unlocked.", "success");
+                    }
+                }, 1000);
+            });
+
+            // Step 2 Click
+            gatewayVerifyBtn.addEventListener('click', () => {
+                user.unlocked = true;
+                saveUserState(user);
+                showToast("Welcome to SubXchange Pro!", "success");
+                checkUnlockStatus();
+            });
+
+            // Developer Bypass
+            document.getElementById('dev-bypass-btn').addEventListener('click', () => {
+                user.unlocked = true;
+                saveUserState(user);
+                showToast("Developer Bypass Active: Gateway Unlocked", "warning");
+                checkUnlockStatus();
+            });
+
+            // Logout / Lock
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                user.unlocked = false;
+                saveUserState(user);
+                showToast("Gateway Locked successfully.", "info");
+                // Reset gateway buttons
+                gatewaySubBtn.classList.remove('pointer-events-none', 'opacity-60');
+                gatewayVerifyBtn.setAttribute('disabled', 'true');
+                gatewayVerifyBtn.className = "w-full sm:w-auto px-6 py-3.5 bg-slate-800 text-slate-500 font-bold rounded-xl transition duration-300 flex items-center justify-center gap-3 cursor-not-allowed border border-slate-700";
+                verifyLockIcon.className = "fa-solid fa-lock text-slate-500";
+                gatewayVerifyText.textContent = "Locked - Complete Step 1";
+                checkUnlockStatus();
+            });
+
+
+            // --- DASHBOARD INITIALIZATION ---
+            function initDashboard() {
+                updateUIStats();
+                renderChannels();
+                renderMyCampaigns();
+                renderLeaderboard();
+                renderTransactions();
+                initSimulatedFeed();
+            }
+
+            // Tab Switching Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Reset active states
+                    tabBtns.forEach(b => b.classList.remove('bg-slate-800', 'border-l-4', 'border-red-500', 'text-white'));
+                    tabContents.forEach(c => c.classList.add('hidden'));
+
+                    // Set active
+                    btn.classList.add('bg-slate-800', 'border-l-4', 'border-red-500', 'text-white');
+                    document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+                });
+            });
+
+            // Default active tab
+            document.querySelector('[data-tab="earn"]').click();
+
+            // Quick navigation buttons
+            document.getElementById('quick-earn-nav-btn').addEventListener('click', () => {
+                document.querySelector('[data-tab="earn"]').click();
+            });
+            document.getElementById('new-campaign-head-btn').addEventListener('click', () => {
+                document.querySelector('[data-tab="promote"]').click();
+            });
+            document.getElementById('empty-create-campaign-btn').addEventListener('click', () => {
+                document.querySelector('[data-tab="promote"]').click();
+            });
+
+            // --- UI STATS & PROFILE SETUP ---
+            function updateUIStats() {
+                document.getElementById('wallet-balance').textContent = user.credits;
+                document.getElementById('stat-credits-earned').textContent = user.totalEarned;
+                document.getElementById('stat-subs-received').textContent = user.subsReceivedTotal;
+
+                const myCampaigns = getMyCampaigns();
+                document.getElementById('stat-active-campaigns').textContent = myCampaigns.length;
+                document.getElementById('tab-badge-campaigns').textContent = myCampaigns.length;
+
+                // Setup banner & sidebar profile info
+                const setupBanner = document.getElementById('channel-setup-banner');
+                const sidebarName = document.getElementById('sidebar-user-name');
+                const sidebarUrl = document.getElementById('sidebar-user-url');
+                const sidebarAvatar = document.getElementById('sidebar-user-avatar');
+
+                if (user.channelName && user.channelUrl) {
+                    setupBanner.classList.add('hidden');
+                    sidebarName.textContent = user.channelName;
+                    sidebarUrl.textContent = user.channelUrl;
+                    sidebarAvatar.src = `https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(user.channelName)}`;
+                } else {
+                    setupBanner.classList.remove('hidden');
+                    sidebarName.textContent = "Guest Creator";
+                    sidebarUrl.textContent = "No YouTube channel linked";
+                }
+
+                // Update promote form cost vs balance calculation
+                calcCampaignCost();
+            }
+
+            // Setup Modal Handling
+            const setupModal = document.getElementById('setup-modal');
+            document.getElementById('open-setup-btn').addEventListener('click', () => setupModal.classList.remove('hidden'));
+            document.getElementById('edit-profile-sidebar-btn').addEventListener('click', () => {
+                document.getElementById('setup-name').value = user.channelName;
+                document.getElementById('setup-url').value = user.channelUrl;
+                setupModal.classList.remove('hidden');
+            });
+            document.getElementById('close-setup-modal').addEventListener('click', () => setupModal.classList.add('hidden'));
+
+            // Profile Setup Submission
+            document.getElementById('profile-setup-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('setup-name').value.trim();
+                const url = document.getElementById('setup-url').value.trim();
+
+                // YouTube URL validation regex
+                const ytRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+                if (!ytRegex.test(url)) {
+                    showToast("Please enter a valid YouTube channel URL", "error");
+                    return;
+                }
+
+                user.channelName = name;
+                user.channelUrl = url;
+                saveUserState(user);
+                setupModal.classList.add('hidden');
+                showToast("Channel profile configured successfully!", "success");
+            });
+
+            // --- TAB 1: EARN CREDITS (COMMUNITY POOL) ---
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.className = "filter-btn px-3 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white font-bold text-xs whitespace-nowrap cursor-pointer transition");
+                    btn.className = "filter-btn px-3 py-1.5 rounded-xl bg-red-600 text-white font-bold text-xs whitespace-nowrap cursor-pointer transition";
+                    currentFilter = btn.getAttribute('data-filter');
+                    renderChannels();
+                });
+            });
+
+            document.getElementById('refresh-pool-btn').addEventListener('click', () => {
+                showToast("Community pool reloaded with fresh channels!", "info");
+                renderChannels();
+            });
+
+            function renderChannels() {
+                const grid = document.getElementById('channels-grid');
+                const emptyState = document.getElementById('channels-empty');
+                grid.innerHTML = '';
+
+                let campaigns = getCommunityCampaigns();
+
+                // Filter out already subscribed channels
+                let available = campaigns.filter(c => !user.completedSubs.includes(c.id));
+
+                // Filter by category
+                if (currentFilter !== 'all') {
+                    available = available.filter(c => c.category === currentFilter);
+                }
+
+                if (available.length === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    available.forEach(c => {
+                        const progressPct = Math.min(100, Math.round((c.currentSubs / c.targetSubs) * 100));
+
+                        const card = document.createElement('div');
+                        card.className = "glass-card rounded-2xl p-5 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition group";
+                        card.innerHTML = `
+                            <div>
+                                <div class="flex items-start justify-between gap-3 mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${c.avatarSeed}" alt="${c.name}" class="w-12 h-12 rounded-xl bg-slate-800 p-1 border border-slate-700 flex-shrink-0 group-hover:scale-105 transition">
+                                        <div>
+                                            <h4 class="font-bold text-white text-base leading-tight group-hover:text-red-400 transition">${c.name}</h4>
+                                            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">${c.category}</span>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-black flex items-center gap-1.5 flex-shrink-0">
+                                        <i class="fa-solid fa-coins text-[10px]"></i> +${user.vip ? 10 : 5}
+                                    </span>
+                                </div>
+
+                                <div class="mb-5">
+                                    <div class="flex items-center justify-between text-xs text-slate-400 mb-1.5 font-medium">
+                                        <span>Campaign Goal</span>
+                                        <span>${c.currentSubs} / ${c.targetSubs} Subs</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-red-600 to-purple-600 rounded-full transition-all duration-500" style="width: ${progressPct}%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button data-id="${c.id}" data-url="${c.url}" class="sub-action-btn w-full py-3 bg-slate-800 hover:bg-red-600 hover:text-white text-slate-200 font-bold text-xs rounded-xl transition duration-300 flex items-center justify-center gap-2 cursor-pointer border border-slate-700 hover:border-red-500 shadow-md">
+                                <i class="fa-brands fa-youtube text-sm text-red-500 group-hover:text-white transition"></i>
+                                <span>Subscribe (+${user.vip ? 10 : 5} Credits)</span>
+                            </button>
+                        `;
+
+                        grid.appendChild(card);
+                    });
+
+                    // Add event listeners to subscribe buttons
+                    document.querySelectorAll('.sub-action-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            const id = btn.getAttribute('data-id');
+                            const url = btn.getAttribute('data-url');
+                            startSubscriptionVerification(id, url);
+                        });
+                    });
+                }
+            }
+
+            // --- VERIFICATION OVERLAY LOGIC ---
+            const verifyModal = document.getElementById('verify-modal');
+            const modalTimerSec = document.getElementById('modal-timer-sec');
+            const modalTimerCircle = document.getElementById('modal-timer-circle');
+            document.getElementById('cancel-verify-btn').addEventListener('click', cancelVerification);
+
+            function startSubscriptionVerification(campaignId, url) {
+                // Check if user set up profile first
+                if (!user.channelName || !user.channelUrl) {
+                    showToast("Please configure your YouTube Channel Profile first!", "warning");
+                    setupModal.classList.remove('hidden');
+                    return;
+                }
+
+                activeVerifyCampaignId = campaignId;
+                
+                // Open YouTube in new tab
+                activeVerifyWindow = window.open(url, '_blank');
+                
+                verifyModal.classList.remove('hidden');
+
+                let timeLeft = 10;
+                modalTimerSec.textContent = timeLeft;
+                modalTimerCircle.style.strokeDashoffset = "0";
+
+                verificationTimer = setInterval(() => {
+                    timeLeft--;
+                    modalTimerSec.textContent = timeLeft;
+                    
+                    // Update circular progress (total dasharray = 263.89)
+                    const offset = 263.89 - ((timeLeft / 10) * 263.89);
+                    modalTimerCircle.style.strokeDashoffset = offset;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(verificationTimer);
+                        completeVerification();
+                    }
+                }, 1000);
+            }
+
+            function cancelVerification() {
+                if (verificationTimer) clearInterval(verificationTimer);
+                verifyModal.classList.add('hidden');
+                activeVerifyCampaignId = null;
+                showToast("Subscription verification cancelled.", "warning");
+            }
+
+            function completeVerification() {
+                verifyModal.classList.add('hidden');
+                if (!activeVerifyCampaignId) return;
+
+                const earned = user.vip ? 10 : 5;
+                user.credits += earned;
+                user.totalEarned += earned;
+                user.completedSubs.push(activeVerifyCampaignId);
+
+                // Increment sub count on community campaign
+                let campaigns = getCommunityCampaigns();
+                const campaignIndex = campaigns.findIndex(c => c.id === activeVerifyCampaignId);
+                if (campaignIndex !== -1) {
+                    campaigns[campaignIndex].currentSubs++;
+                }
+                saveCommunityCampaigns(campaigns);
+
+                saveUserState(user);
+                addTransaction(`Subscribed to community channel`, `+${earned}`, 'earn');
+                showToast(`🎉 Subscription Verified! You earned +${earned} Credits.`, "success");
+
+                renderChannels();
+                activeVerifyCampaignId = null;
+            }
+
+            // --- TAB 2: PROMOTE CHANNEL (CAMPAIGN CREATION) ---
+            const formSubCount = document.getElementById('form-sub-count');
+            const formCostCalc = document.getElementById('form-cost-calc');
+            const formBalanceCheck = document.getElementById('form-balance-check');
+            const submitCampaignBtn = document.getElementById('submit-campaign-btn');
+
+            formSubCount.addEventListener('change', calcCampaignCost);
+
+            function calcCampaignCost() {
+                const count = parseInt(formSubCount.value);
+                const cost = count * 10;
+                formCostCalc.textContent = cost;
+
+                if (user.credits >= cost) {
+                    formBalanceCheck.textContent = "Sufficient Balance";
+                    formBalanceCheck.className = "text-base font-bold text-emerald-400 mt-0.5";
+                    submitCampaignBtn.removeAttribute('disabled');
+                    submitCampaignBtn.className = "w-full py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-black rounded-xl shadow-lg glow-purple transition duration-300 cursor-pointer flex items-center justify-center gap-3 text-base";
+                } else {
+                    formBalanceCheck.textContent = "Insufficient Credits";
+                    formBalanceCheck.className = "text-base font-bold text-red-500 mt-0.5";
+                    submitCampaignBtn.setAttribute('disabled', 'true');
+                    submitCampaignBtn.className = "w-full py-4 bg-slate-800 text-slate-500 font-black rounded-xl transition duration-300 cursor-not-allowed flex items-center justify-center gap-3 text-base";
+                }
+            }
+
+            document.getElementById('campaign-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('form-channel-name').value.trim();
+                const url = document.getElementById('form-channel-url').value.trim();
+                const category = document.getElementById('form-category').value;
+                const count = parseInt(formSubCount.value);
+                const cost = count * 10;
+
+                // YouTube URL validation regex
+                const ytRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+                if (!ytRegex.test(url)) {
+                    showToast("Please enter a valid YouTube channel URL", "error");
+                    return;
+                }
+
+                if (user.credits < cost) {
+                    showToast("Insufficient credits to launch this campaign!", "error");
+                    return;
+                }
+
+                // Deduct credits
+                user.credits -= cost;
+                saveUserState(user);
+
+                // Add to My Campaigns
+                const myCampaigns = getMyCampaigns();
+                const newCampaign = {
+                    id: 'my_' + Date.now(),
+                    name,
+                    url,
+                    category,
+                    currentSubs: 0,
+                    targetSubs: count,
+                    date: new Date().toLocaleDateString()
+                };
+                myCampaigns.unshift(newCampaign);
+                saveMyCampaigns(myCampaigns);
+
+                // Add to public community pool as well so it looks real!
+                const commCampaigns = getCommunityCampaigns();
+                commCampaigns.unshift({
+                    id: newCampaign.id,
+                    name,
+                    url,
+                    category,
+                    currentSubs: 0,
+                    targetSubs: count,
+                    avatarSeed: name
+                });
+                saveCommunityCampaigns(commCampaigns);
+
+                addTransaction(`Launched promotion campaign (${count} Subs)`, `-${cost}`, 'spend');
+                showToast(`🚀 Promotion campaign launched! Requesting ${count} subscribers.`, "success");
+
+                // Reset form
+                document.getElementById('form-channel-name').value = '';
+                document.getElementById('form-channel-url').value = '';
+                
+                // Switch to My Campaigns Tab
+                document.querySelector('[data-tab="my-campaigns"]').click();
+                renderMyCampaigns();
+            });
+
+
+            // --- TAB 3: MY CAMPAIGNS ---
+            function renderMyCampaigns() {
+                const list = document.getElementById('my-campaigns-list');
+                const emptyState = document.getElementById('my-campaigns-empty');
+                list.innerHTML = '';
+
+                const campaigns = getMyCampaigns();
+
+                if (campaigns.length === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    
+                    campaigns.forEach(c => {
+                        const progressPct = Math.min(100, Math.round((c.currentSubs / c.targetSubs) * 100));
+                        const isCompleted = c.currentSubs >= c.targetSubs;
+
+                        const item = document.createElement('div');
+                        item.className = "glass-card rounded-2xl p-6 border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6";
+                        item.innerHTML = `
+                            <div class="flex items-center gap-4 w-full md:w-auto">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center gap-3">
+                                        <h4 class="font-bold text-white text-base">${c.name}</h4>
+                                        <span class="px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 text-[10px] font-bold uppercase">${c.category}</span>
+                                    </div>
+                                    <a href="${c.url}" target="_blank" class="text-xs text-slate-400 hover:text-purple-400 truncate max-w-xs block mt-0.5 underline">
+                                        ${c.url}
+                                    </a>
+                                    <div class="text-[10px] text-slate-500 mt-1">Launched: ${c.date}</div>
+                                </div>
+                            </div>
+
+                            <div class="w-full md:w-64 flex-shrink-0">
+                                <div class="flex items-center justify-between text-xs font-bold mb-1.5">
+                                    <span class="${isCompleted ? 'text-emerald-400' : 'text-slate-400'} flex items-center gap-1.5">
+                                        ${isCompleted ? '<i class="fa-solid fa-circle-check"></i> Completed' : '<i class="fa-solid fa-circle-notch fa-spin"></i> Active Fulfillment'}
+                                    </span>
+                                    <span class="text-white">${c.currentSubs} / ${c.targetSubs} Received</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full transition-all duration-500" style="width: ${progressPct}%"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+                                <button data-delete="${c.id}" class="delete-campaign-btn px-4 py-2 bg-slate-800 hover:bg-red-950/50 hover:text-red-400 text-slate-400 font-bold text-xs rounded-xl border border-slate-700 transition cursor-pointer">
+                                    <i class="fa-solid fa-trash"></i> Cancel
+                                </button>
+                            </div>
+                        `;
+
+                        list.appendChild(item);
+                    });
+
+                    // Add delete listeners
+                    document.querySelectorAll('.delete-campaign-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const id = btn.getAttribute('data-delete');
+                            let myCaps = getMyCampaigns();
+                            myCaps = myCaps.filter(c => c.id !== id);
+                            saveMyCampaigns(myCaps);
+                            showToast("Promotion campaign archived successfully.", "info");
+                            renderMyCampaigns();
+                        });
+                    });
+                }
+            }
+
+
+            // --- TAB 4: LEADERBOARD ---
+            function renderLeaderboard() {
+                const tbody = document.getElementById('leaderboard-tbody');
+                tbody.innerHTML = '';
+
+                MOCK_LEADERBOARD.forEach((row, index) => {
+                    const tr = document.createElement('tr');
+                    tr.className = "border-b border-slate-800/40 hover:bg-slate-800/30 transition";
+                    
+                    let rankBadge = `<span class="font-bold text-slate-400">#${index + 1}</span>`;
+                    if (index === 0) rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-black flex items-center justify-center text-xs mx-auto shadow-md glow-red">1</span>`;
+                    if (index === 1) rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-300 text-slate-950 font-black flex items-center justify-center text-xs mx-auto shadow-md">2</span>`;
+                    if (index === 2) rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-700 text-white font-black flex items-center justify-center text-xs mx-auto shadow-md">3</span>`;
+
+                    tr.innerHTML = `
+                        <td class="py-3.5 px-4 text-center w-12">${rankBadge}</td>
+                        <td class="py-3.5 px-4 font-bold text-white flex items-center gap-3">
+                            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${row.name}" class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700">
+                            <span>${row.name}</span>
+                        </td>
+                        <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-xs font-semibold uppercase">${row.category}</span></td>
+                        <td class="py-3.5 px-4 text-right font-extrabold text-white">${row.subs.toLocaleString()}</td>
+                        <td class="py-3.5 px-4 text-right font-extrabold text-amber-400">${row.coins.toLocaleString()}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+
+            // --- TAB 5: REWARDS & TRANSACTIONS ---
+            const claimDailyBtn = document.getElementById('claim-daily-btn');
+            const upgradeVipBtn = document.getElementById('upgrade-vip-btn');
+
+            claimDailyBtn.addEventListener('click', () => {
+                const now = Date.now();
+                const twentyFourHours = 24 * 60 * 60 * 1000;
+                
+                if (now - user.dailyClaimed < twentyFourHours && user.dailyClaimed !== 0) {
+                    showToast("Daily bonus already claimed! Check back tomorrow.", "warning");
+                    return;
+                }
+
+                user.credits += 15;
+                user.totalEarned += 15;
+                user.dailyClaimed = now;
+                saveUserState(user);
+
+                addTransaction("Claimed Daily Creator Bonus", "+15", "earn");
+                showToast("🎁 Daily bonus claimed! Added +15 Credits to wallet.", "success");
+            });
+
+            upgradeVipBtn.addEventListener('click', () => {
+                if (user.vip) {
+                    showToast("You are already a VIP Premium Member!", "info");
+                    return;
+                }
+
+                user.vip = true;
+                saveUserState(user);
+                showToast("👑 Congratulations! VIP Multiplier Activated (2x Credit Earnings).", "success");
+                upgradeVipBtn.textContent = "VIP Active";
+                upgradeVipBtn.className = "w-full py-3.5 bg-slate-800 text-purple-400 font-bold rounded-xl cursor-default border border-purple-500/30";
+                renderChannels(); // update coin labels
+            });
+
+            function renderTransactions() {
+                const list = document.getElementById('transactions-list');
+                list.innerHTML = '';
+                const txs = getTransactions();
+
+                txs.forEach(t => {
+                    const item = document.createElement('div');
+                    item.className = "py-3 flex items-center justify-between text-xs";
+                    const isEarn = t.type === 'earn';
+
+                    item.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg ${isEarn ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'} flex items-center justify-center flex-shrink-0 text-sm">
+                                <i class="fa-solid ${isEarn ? 'fa-arrow-down' : 'fa-arrow-up'}"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white mb-0.5">${t.text}</div>
+                                <div class="text-[10px] text-slate-500">${t.date}</div>
+                            </div>
+                        </div>
+                        <div class="font-extrabold ${isEarn ? 'text-emerald-400' : 'text-red-400'}">${t.amount}</div>
+                    `;
+                    list.appendChild(item);
+                });
+            }
+
+
+            // --- SIMULATED ACTIVITY FEED ENGINE ---
+            function initSimulatedFeed() {
+                const feedContainer = document.getElementById('live-feed-container');
+                const feedEvents = [
+                    { name: 'UltraGamerX', action: 'subscribed to', target: 'TechBeast Official' },
+                    { name: 'Lofi Vibes', action: 'launched a campaign for', target: '25 subscribers' },
+                    { name: 'SarahVlogs', action: 'earned', target: '+10 VIP Credits' },
+                    { name: 'DevMasterPro', action: 'subscribed to', target: 'GamerGod 99' },
+                    { name: 'CryptoKnight', action: 'claimed', target: 'Daily Rewards (+15 Coins)' },
+                    { name: 'AnimeAMV', action: 'launched a campaign for', target: '50 subscribers' },
+                    { name: 'FitnessCoach', action: 'subscribed to', target: 'Chill Beats / Lofi' }
+                ];
+
+                function addSimulatedFeedItem() {
+                    const randomEvent = feedEvents[Math.floor(Math.random() * feedEvents.length)];
+                    const item = document.createElement('div');
+                    item.className = "p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center gap-2.5 text-[11px] animate-fade-in";
+                    item.innerHTML = `
+                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${randomEvent.name}" class="w-6 h-6 rounded-full bg-slate-800 flex-shrink-0">
+                        <div class="truncate">
+                            <span class="font-bold text-white">${randomEvent.name}</span>
+                            <span class="text-slate-400">${randomEvent.action}</span>
+                            <span class="font-bold text-purple-400">${randomEvent.target}</span>
+                        </div>
+                    `;
+                    feedContainer.prepend(item);
+
+                    if (feedContainer.children.length > 5) {
+                        feedContainer.removeChild(feedContainer.lastChild);
+                    }
+
+                    // Also occasionally simulate user's own campaign receiving subscribers!
+                    let myCampaigns = getMyCampaigns();
+                    if (myCampaigns.length > 0 && Math.random() > 0.6) {
+                        // find active campaign
+                        const active = myCampaigns.find(c => c.currentSubs < c.targetSubs);
+                        if (active) {
+                            active.currentSubs++;
+                            user.subsReceivedTotal++;
+                            saveUserState(user);
+                            saveMyCampaigns(myCampaigns);
+                            renderMyCampaigns();
+                            showToast(`🔥 Someone just subscribed to your campaign "${active.name}"!`, "success");
+                        }
+                    }
+                }
+
+                // Initial feed pop
+                addSimulatedFeedItem();
+                addSimulatedFeedItem();
+                setInterval(addSimulatedFeedItem, 8000);
+            }
+
+            // Check initial gateway lock
+            checkUnlockStatus();
+        });
+    </script>
+</body>
+</html>
